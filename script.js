@@ -45,35 +45,35 @@ document
 // hero section js code 
 
 // ===== RAIN EFFECT =====
-  const rainContainer = document.querySelector('.rain');
-  const dropsCount = 120;
+const rainContainer = document.querySelector('.rain');
+const dropsCount = 120;
 
-  for (let i = 0; i < dropsCount; i++) {
-    const drop = document.createElement('div');
-    drop.className = 'drop';
-    drop.style.left = Math.random() * 100 + 'vw';
-    drop.style.animationDuration = 0.5 + Math.random() * 0.5 + 's';
-    drop.style.animationDelay = Math.random() * 2 + 's';
-    drop.style.height = 10 + Math.random() * 20 + 'px';
-    rainContainer.appendChild(drop);
+for (let i = 0; i < dropsCount; i++) {
+  const drop = document.createElement('div');
+  drop.className = 'drop';
+  drop.style.left = Math.random() * 100 + 'vw';
+  drop.style.animationDuration = 0.5 + Math.random() * 0.5 + 's';
+  drop.style.animationDelay = Math.random() * 2 + 's';
+  drop.style.height = 10 + Math.random() * 20 + 'px';
+  rainContainer.appendChild(drop);
+}
+
+// ===== ALTERNATING HERO BLOCKS =====
+const block1 = document.getElementById('block1');
+const block2 = document.getElementById('block2');
+let activeIndex = 0;
+
+setInterval(() => {
+  if (activeIndex === 0) {
+    block1.classList.add('active');
+    block2.classList.remove('active');
+    activeIndex = 1;
+  } else {
+    block2.classList.add('active');
+    block1.classList.remove('active');
+    activeIndex = 0;
   }
-
-  // ===== ALTERNATING HERO BLOCKS =====
-  const block1 = document.getElementById('block1');
-  const block2 = document.getElementById('block2');
-  let activeIndex = 0;
-
-  setInterval(() => {
-    if (activeIndex === 0) {
-      block1.classList.add('active');
-      block2.classList.remove('active');
-      activeIndex = 1;
-    } else {
-      block2.classList.add('active');
-      block1.classList.remove('active');
-      activeIndex = 0;
-    }
-  }, 2000); // change every 2 seconds
+}, 2000); // change every 2 seconds
 
 
 
